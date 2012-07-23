@@ -27,11 +27,10 @@ static char *getWelcomeString() {
 
 }
 
-static player *setPlayerStats(player *currentPlayer) {
+static void setPlayerStats(player *currentPlayer) {
 	currentPlayer->speed = randomNum(0, 10);
 	currentPlayer->attack = randomNum(0, 10);
 	currentPlayer->defense = randomNum(0, 10);
-	return currentPlayer;
 }
 
 int main() {
@@ -43,10 +42,11 @@ int main() {
 	player team[10]; 
 
 	for(c = 0; c < 11; c++) {
-		setPlayerStats(team[c]);
-		printf("\n\tPlayer %d \n\t\tSpeed: %d\n\t\t", c, team[c].speed);
+		setPlayerStats(&team[c]);
+		printf("\n\tPlayer %d \n\t\tSpeed: %d", c, team[c].speed);
 	}
-	
+
+	printf("\n");	
 	return 0;
 
 }
